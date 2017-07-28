@@ -34,7 +34,7 @@ module.exports = function(config) {
             return await next()
         }
 
-        debug('current image url:', ctx.url)
+        debug('current image request url:', ctx.url)
 
         let imgStatKV = await imageSrv.resolve(ctx.url, ctx.path, ctx.query)
 
@@ -50,7 +50,7 @@ module.exports = function(config) {
 
         if (imgStatKV.handled) {
 
-            debug('本地已存在处理过的图片:', imgStatKV.handled.path)
+            debug('local handeld image path:', imgStatKV.handled.path)
 
             let etag = imageSrv.getETag(imgStatKV.handled)
 
@@ -119,8 +119,7 @@ module.exports = function(config) {
             return
         }
 
-
-        debug('开始处理图片:', imgStatKV.source.path)
+        debug('start processing image:', imgStatKV.source.path)
 
         //如果没有在本地发现已经处理好的文件,则跳转至服务内部处理
         await imageSrv
