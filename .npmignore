@@ -2,3 +2,4 @@
 .npmignore
 test
 .eslintrc.json
+.vscode
