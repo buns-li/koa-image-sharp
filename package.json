@@ -1,0 +1,30 @@
+{
+    "name": "koa-image",
+    "version": "0.0.1",
+    "description": "a middlware for koa.js",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha test/test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/buns-li/koa-image.git"
+    },
+    "keywords": [
+        "koa",
+        "image"
+    ],
+    "author": "buns-li",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/buns-li/koa-image/issues"
+    },
+    "homepage": "https://github.com/buns-li/koa-image#readme",
+    "dependencies": {
+        "debug": "^2.6.8",
+        "sharp": "^0.18.2"
+    },
+    "devDependencies": {
+        "koa": "^2.3.0"
+    }
+}
