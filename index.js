@@ -13,7 +13,7 @@ const MIMES = {
     '.jpg': 'image/jpeg',
     '.png': 'image/png',
     '.svg': 'image/svg+xml',
-    '.tiff': 'image/tiff',
+    '.tiff': 'image/tiff'
 }
 
 /**
@@ -95,12 +95,12 @@ module.exports = function(config) {
              */
             ctx.body = fileStream.createReadStream(imgStatKV.handled.path)
                 .on(
-                    "error",
+                    'error',
                     //handleContentReadStreamError
-                    error => {
+                    () => {
                         // NOTE: If an error occurs on the read-stream, it will take
-                        // care of destroying itself. As such, we only have to worry 
-                        // about cleaning up the possible down-stream connections 
+                        // care of destroying itself. As such, we only have to worry
+                        // about cleaning up the possible down-stream connections
                         // that have been established.
                         try {
                             ctx.length = 0
@@ -108,11 +108,11 @@ module.exports = function(config) {
                             ctx.etag = ctx.lastModified = null
                             ctx.throw(500, 'ImageServer Internal Error')
                         } catch (headerError) {
-                            // We can't set a header once the headers have already 
-                            // been sent - catch failed attempt to overwrite the 
+                            // We can't set a header once the headers have already
+                            // been sent - catch failed attempt to overwrite the
                             // response code.
                         } finally {
-                            ctx.res.end("500 Server Error")
+                            ctx.res.end('500 Server Error')
                         }
                     }
                 )
@@ -124,7 +124,7 @@ module.exports = function(config) {
         //如果没有在本地发现已经处理好的文件,则跳转至服务内部处理
         await imageSrv
             .stream(ctx.res, imgStatKV.source, ctx.query)
-            .catch(err => {
+            .catch(() => {
                 ctx.throw(500, 'ImageServer Internal Error')
             })
     }

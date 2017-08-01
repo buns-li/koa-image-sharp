@@ -12,7 +12,7 @@
     },
     "parserOptions": {
         "sourceType": "module",
-        "ecmaVersion": 6,
+        "ecmaVersion": 2017,
         "ecmaFeatures": {
             "impliedStrict": true,
             "jsx": false
@@ -36,6 +36,8 @@
         "curly": "off",
         "camelcase": "warn",
         "space-before-function-paren": "off",
-        "complexity": "warn"
+        "complexity": "warn",
+        "eol-last": "off",
+        "no-multiple-empty-lines": "off"
     }
 }
