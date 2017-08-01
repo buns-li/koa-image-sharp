@@ -1,5 +1,5 @@
-# koa-image
-> a middleware for koa.js which is based of 'sharp' lib
+# koa-image-sharp
+> a image operation middleware for koa.js which is based of 'sharp' lib
 
 · resize图片
 · 旋转图片
@@ -8,7 +8,7 @@
 # Install
 
 ```sh
-$ npm install --save  koa-image
+$ npm install --save  koa-image-sharp
 ```
 
 ## Config Options

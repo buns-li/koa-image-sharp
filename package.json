@@ -1,14 +1,14 @@
 {
-    "name": "koa-image",
+    "name": "koa-image-sharp",
     "version": "0.0.1",
-    "description": "a middlware for koa.js",
+    "description": "a image operation middleware for koa.js which is based of 'sharp' lib",
     "main": "index.js",
     "scripts": {
         "test": "mocha test/test.js"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/buns-li/koa-image.git"
+        "url": "git+https://github.com/buns-li/koa-image-sharp.git"
     },
     "keywords": [
         "koa",
@@ -17,9 +17,9 @@
     "author": "buns-li",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/buns-li/koa-image/issues"
+        "url": "https://github.com/buns-li/koa-image-sharp/issues"
     },
-    "homepage": "https://github.com/buns-li/koa-image#readme",
+    "homepage": "https://github.com/buns-li/koa-image-sharp#readme",
     "dependencies": {
         "debug": "^2.6.8",
         "sharp": "^0.18.2"
