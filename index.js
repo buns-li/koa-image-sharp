@@ -6,15 +6,7 @@ const fileStream = require('fs')
 
 const path = require('path')
 
-const MIMES = {
-    '.webp': 'image/webp',
-    '.ico': 'image/x-icon',
-    '.jpeg': 'image/jpeg',
-    '.jpg': 'image/jpeg',
-    '.png': 'image/png',
-    '.svg': 'image/svg+xml',
-    '.tiff': 'image/tiff'
-}
+const MIMES = require('./lib/mimes')
 
 /**
  * @param {Object} config 配置参数
@@ -24,7 +16,7 @@ const MIMES = {
  *      `maxAge`:[`Number`] 资源缓存时间 (Default:60*60*24*7 = 7天)
  *      `isweak`:[`Boolean`] 是否使用弱ETag (Default:true)
  */
-module.exports = function(config) {
+module.exports = function (config) {
 
     let imageSrv = imageServer(config)
 
@@ -122,11 +114,9 @@ module.exports = function(config) {
         debug('start processing image:', imgStatKV.source.path)
 
         //如果没有在本地发现已经处理好的文件,则跳转至服务内部处理
-        await imageSrv
-            .stream(ctx.res, imgStatKV.source, ctx.query)
-            .catch(() => {
-                ctx.throw(500, 'ImageServer Internal Error')
-            })
+        ctx.body = await imageSrv.stream(ctx.res, imgStatKV.source, ctx.query).catch(err => {
+            ctx.throw(500, process.env.NODE_ENV === 'production' ? 'ImageServer Internal Error' : err)
+        })
     }
 
 }
