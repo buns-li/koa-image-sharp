@@ -21,10 +21,10 @@
     },
     "homepage": "https://github.com/buns-li/koa-image-sharp#readme",
     "dependencies": {
-        "debug": "^2.6.8",
-        "sharp": "^0.18.2"
+        "debug": "^3.1.0",
+        "sharp": "^0.19.1"
     },
     "devDependencies": {
-        "koa": "^2.3.0"
+        "koa": "^2.5.0"
     }
 }
